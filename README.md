@@ -1,2 +1,2 @@
-# graduateAdmissionsAnalysis
-Visualization, analysis and predictive modeling of a Kaggle graduate admissions dataset.
+### graduateAdmissionsAnalysis
+Visualization, analysis and predictive modelling of a kaggle graduate admissions dataset.
