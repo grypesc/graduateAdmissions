@@ -7,15 +7,17 @@ import os
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.linear_model import LinearRegression, BayesianRidge, Ridge, Lasso, SGDRegressor
 from sklearn.svm import LinearSVR
+from sklearn.tree import DecisionTreeRegressor
 
 kFoldSplits = 5;
 data = pd.read_csv('datasetVer1.1.csv')
-xLabels = ['Serial No.','GRE Score','TOEFL Score','University Rating','SOP','LOR' ,'CGPA','Research'];
+xLabels = ['GRE Score','TOEFL Score','University Rating','SOP','LOR' ,'CGPA','Research'];
 yLabels = ['Chance of Admit'];
 regressors = [
     LinearRegression(),
     Ridge(alpha=0.5),
     RandomForestRegressor(),
+    DecisionTreeRegressor(random_state = 1),
     BayesianRidge(),
     LinearSVR(epsilon = 0.001),
     Lasso(alpha=0.0001),
