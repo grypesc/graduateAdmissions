@@ -19,7 +19,7 @@ regressors = [
     BayesianRidge(),
     LinearSVR(epsilon = 0.001),
     Lasso(alpha=0.0001),
-    SGDRegressor(loss="squared_loss", penalty=None)
+    SGDRegressor(loss="squared_loss", penalty=None, alpha = 0.1)
     ]
 
 from sklearn.preprocessing import MinMaxScaler
@@ -30,7 +30,7 @@ from sklearn.model_selection import KFold
 kfold = KFold(n_splits=kFoldSplits, random_state=1, shuffle=True)
 
 for regressor in regressors:
-    score = 0;
+    score = 0
     for trainDataKFoldIndex, testDataKFoldIndex in kfold.split(data):
         trainData = data.drop(testDataKFoldIndex)
         testData = data.drop(trainDataKFoldIndex)
@@ -42,4 +42,4 @@ for regressor in regressors:
         score+=reg.score(xTest, yTest)
     print("### " + regressor.__class__.__name__ + " ###")
     score = score/kFoldSplits
-    print("Average accuracy on training sets: " + str(score) +"\n\n")
+    print("Average accuracy on training sets: " + str(score) +"\n")
